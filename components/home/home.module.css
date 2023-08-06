@@ -1,0 +1,70 @@
+.container {
+    background-color: #0b9c7d8a;
+    background-image: url("../../public/banner.jpg");
+    background-repeat: no-repeat;
+  }
+  
+  .gridContainer {
+    padding: 150px 0px;
+  }
+  
+  .searches {
+    padding: 50px 0;
+  }
+  
+  .grid {
+    margin: 10px 20px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #00000011;
+  }
+  
+  .grid > input {
+    background-color: #ffffff00;
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 8px 10px;
+    padding-right: 20px;
+  }
+  
+  .heading {
+    font-weight: bolder;
+    font-size: 56px;
+    padding-top: 20px;
+    text-align: center;
+    font-family:Georgia;
+  }
+  
+  .headingLast {
+    color: #007527;
+    font-style: italic;
+  }
+  
+  .heroImage {
+    position: absolute;
+    height: 50vh;
+    width: fit-content;
+    z-index: -2;
+  }
+  .icons {
+    color: #00000055;
+  }
+  
+  .searchBtnPhone {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    padding: 10px 30px;
+    background-color: #1976d2;
+    color: #ffffff;
+    border-radius: 30px;
+    text-transform: none;
+  }
+  
+

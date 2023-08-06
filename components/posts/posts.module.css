@@ -1,0 +1,26 @@
+.heading {
+  font-size: 40px;
+  font-weight: lighter;
+  margin: 50px auto 0px;
+  border-bottom: 2px solid green;
+  text-align: center;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25%);
+  /* gap: 15px; */
+  /* background-color: #fafafa; */
+  
+  padding: 1rem 0;
+  margin: 2rem 0;
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 5px 10px 20px #00000025;
+}
+
+.cardItem {
+  justify-content: center;
+}

@@ -1,0 +1,81 @@
+.heading {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+.bodyText {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.location {
+  width: 80%;
+  margin: auto;
+  padding: 80px 0;
+}
+.location iframe {
+  width: 100%;
+}
+.contactUs {
+  width: 50%;
+  margin: auto;
+  margin-top: 40px;
+}
+.contactCol {
+  flex-basis: 48%;
+  margin-bottom: 3px;
+  margin-bottom: 40px;
+}
+.contactCol div {
+  display: flex; 
+  align-items: center;
+  margin-bottom: 20px;
+}
+.contactCol div .fa {
+  font-size: 24px;
+  color: #0000ff99;
+  margin: 10px;
+  margin-right: 30px;
+}
+.contactCol div p {
+  padding: 0;
+}
+.contactCol div h5 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #555555;
+  font-weight: 400;
+}
+.contactCol input, .contactCol textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  outline: none;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+}
+
+.heroBtn {
+  display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    color: #0000ff80;
+    border: 1px solid #0000ff80;
+    padding: 12px 34px;
+    font-size: 14px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.heroBtn:hover {
+  border: 1px solid #0000ff80;
+    background-color: #0000ff80;
+    transition: 0.75s;
+    color: #ffffff;
+}
