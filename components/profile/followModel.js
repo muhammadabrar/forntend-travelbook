@@ -17,6 +17,8 @@ const FollowModel = (props) => {
   const { onClose, open, id } = props;
   const [data, setdata] = useState();
   const [isLoading, setisLoading] = useState(true);
+const [Error, setError] = useState(false);
+const [Error401, setError401] = useState(false);
 
   useEffect(() => {
     axios

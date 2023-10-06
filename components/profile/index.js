@@ -144,7 +144,7 @@ export default function ProfilePage() {
                 sx={{ border: "none" }}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_API}/public/dps/${data?.user?.Image}`}
+                  src={data?.user?.Image? `${process.env.NEXT_PUBLIC_API}/public/dps/${data?.user?.Image}`: '/profilePic.png'}
                   className={Styles.profilePicture}
                   layout="fill"
                   alt={"dp"}

@@ -174,20 +174,7 @@ function Logout() {
             <Typography>Profile</Typography>
           </MenuItem>
         </Link>
-        <Link href={`/chat`}>
-        <MenuItem>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-            color="inherit"
-          >
-            <ChatBubble />
-          </IconButton>
-          <Typography>Chat</Typography>
-        </MenuItem>
-      </Link>
+        
       </>
       )}
       {IsLogin ? (
@@ -273,11 +260,7 @@ function Logout() {
                   <Typography textAlign="center">About</Typography>
                 </Link>
               </MenuItem>
-              <MenuItem>
-                <Link href="/contact">
-                  <Typography textAlign="center">Contact Us</Typography>
-                </Link>
-              </MenuItem>
+              
               {IsLogin && (
                 <MenuItem>
                   <Link href="/upload">
@@ -342,18 +325,7 @@ function Logout() {
                 About
               </Button>
             </Link>
-            <Link href="/contact">
-              <Button
-                sx={{
-                  color: "white",
-                  display: "block",
-                  ml: "15px",
-                  textTransform: "capitalize",
-                }}
-              >
-                Contact Us
-              </Button>
-            </Link>
+            
             {IsLogin&& <Link href="/upload">
               <Button
                 sx={{
@@ -384,20 +356,7 @@ function Logout() {
                   <AccountCircle />
                 </IconButton>
               </Link>
-              <Link href={`/chat`}>
-              <MenuItem>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="primary-search-account-menu"
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <ChatBubble />
-                </IconButton>
-                <Typography>Chat</Typography>
-              </MenuItem>
-            </Link>
+           
             </>
             )}
             {IsLogin ? (
