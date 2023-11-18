@@ -19,13 +19,24 @@ import Item from "@mui/material/ListItem";
 
 const Search = () => {
   const [search, setsearch] = useState();
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [data, setdata] = useState();
   const [error, setError] = useState(false);
   const [posts, setposts] = useState();
   useEffect(() => {
-    const getposts = localStorage.getItem("posts");
-    setposts(JSON.parse(getposts));
+    axios
+    .get(`${process.env.NEXT_PUBLIC_API}/post`)
+    .then(function (response) {
+      setposts(response.data);
+      console.log(response.data);
+      localStorage.setItem("posts", JSON.stringify(response.data));
+      setLoading(false);
+    })
+    .catch(function (error) {
+      console.log(error);
+
+      setLoading(false);
+    });
   }, []);
   useEffect(() => {
     handleSearch();
@@ -33,8 +44,11 @@ const Search = () => {
   const handleSearch = async () => {
     // console.log(posts[0].post);
     if (search) {
-      const results = posts.filter((item) =>
-        item.post.title.toLowerCase().includes(search)
+      const results = posts?.filter((item) =>
+        item.post.title.toLowerCase().includes(search) ||
+        item.post.Location.toLowerCase().includes(search) ||
+
+        item.user.name.toLowerCase().includes(search)
       );
       console.log("result :", results);
       setdata(results);

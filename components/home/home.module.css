@@ -1,11 +1,14 @@
 .container {
     background-color: #0b9c7d8a;
-    background-image: url("../../public/banner.jpg");
+    /* background-image: url("../../public/landing.jpg");
     background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
   .gridContainer {
-    padding: 150px 0px;
+    padding: 100px 0px;
   }
   
   .searches {

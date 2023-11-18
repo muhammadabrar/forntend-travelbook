@@ -33,7 +33,6 @@ export default function LogIn() {
       password,
       email,
     };
-console.log(data);
     await axios
       .post(`${process.env.NEXT_PUBLIC_API}/user/login`, data)
       .then(function (response) {

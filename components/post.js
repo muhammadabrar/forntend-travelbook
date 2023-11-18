@@ -162,7 +162,7 @@ const Post = () => {
             src={`${process.env.NEXT_PUBLIC_API}/public/${data?.post?.Image}`}
           />
         </div>
-        <CardHeader
+        {!data?.IsAdmin && <CardHeader
           avatar={
             <Avatar
               aria-label="user"
@@ -190,7 +190,7 @@ const Post = () => {
           }
           title={data?.user.name}
           subheader={data?.post.createdAt}
-        />
+        />}
         <h1>{data?.post?.Location}</h1>
         <p>{data?.post?.description}</p>
         <Divider />

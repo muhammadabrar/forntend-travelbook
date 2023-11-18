@@ -15,7 +15,7 @@ import axios from "axios";
 import { IconButton } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const PostCard = ({ data, DeletePost, userPost, user }) => {
+const PostCard = ({ data, DeletePost, userPost, user, landingPage }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorEl1, setAnchorEl1] = useState(null);
 
@@ -66,22 +66,22 @@ const PostCard = ({ data, DeletePost, userPost, user }) => {
     };
     setconfig(token);
     setuser_id(user_id);
-    if (!userPost && user) {
-      axios
-        .get(
-          `${process.env.NEXT_PUBLIC_API}/user/IsFollow/${user._id}/${user_id}`
-        )
-        .then(function (response) {
-          // console.log(response);
-          if (response.data != null) {
-            setIsFollow(true);
-            setfollow_id(response.data);
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
+    // if (!userPost && user) {
+    //   axios
+    //     .get(
+    //       `${process.env.NEXT_PUBLIC_API}/user/IsFollow/${user._id}/${user_id}`
+    //     )
+    //     .then(function (response) {
+    //       // console.log(response);
+    //       if (response.data != null) {
+    //         setIsFollow(true);
+    //         setfollow_id(response.data);
+    //       }
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // }
   }, [IsFollow]);
   function follow(action) {
     if (action == "follow") {
@@ -129,12 +129,12 @@ const PostCard = ({ data, DeletePost, userPost, user }) => {
       .post(`${process.env.NEXT_PUBLIC_API}/post/like/`, likeData)
       .then(function (response) {
         setIslike(response.data.like);
-        if (response.data.like) {
+        if (response?.data?.like) {
           setlikes(likes + 1);
         } else {
           setlikes(likes - 1);
         }
-        console.log(response.data.like);
+        console.log(response?.data?.like);
       })
       .catch(function (error) {
         console.log(error);
@@ -144,52 +144,12 @@ const PostCard = ({ data, DeletePost, userPost, user }) => {
   return (
     <>
       <Card className={Styles.card}>
-        {!userPost && (
-          <CardHeader
-            avatar={
-              <Avatar
-                aria-label="user"
-                alt={user ? user.name : "Null"}
-                src={`${process.env.NEXT_PUBLIC_API}/public/dps/${user?.Image}`}
-              />
-            }
-            // action={
-            //   user_id != data.user_id? <Button
-            //   className={Styles.MenuItem}
-            //   size="small"
-            //   variant="contained"
-            //   onClick={() => follow(IsFollow ? "unfollow" : "follow")}
-            // >
-            //   {IsFollow ? "Unfollow" : "Follow"}
-            // </Button>: null
-            // }
-            title={
-              user ? (
-                <Link href={`/profile?id=${user._id}`}>
-                  <a>{user.name}</a>
-                </Link>
-              ) : (
-                "Null"
-              )
-            }
-            subheader={
-              user_id != data.user_id ? (
-                <button
-                  size="small"
-                  variant="contained"
-                  onClick={() => follow(IsFollow ? "unfollow" : "follow")}
-                >
-                  {IsFollow ? "Unfollow" : "Follow"}
-                </button>
-              ) : null
-            }
-          />
-        )}
+
         <div className={Styles.PostImage}>
           <Image
             className={Styles.Post_Image}
             layout="fill"
-            src={`${process.env.NEXT_PUBLIC_API}/public/${data.Image}`}
+            src={`${process.env.NEXT_PUBLIC_API}/public/${data?.Image}`}
           />
         </div>
         <CardContent>
@@ -206,14 +166,14 @@ const PostCard = ({ data, DeletePost, userPost, user }) => {
           })} */}
           <button
             size="small"
-            
+
             onClick={() => like()}
             className={Styles.like}
           >
-             {Islike ? <FavoriteIcon className={Styles.likeIcon}/>: <FavoriteBorderIcon className={Styles.unlikeIcon}/>} {likes}
+            {Islike ? <FavoriteIcon className={Styles.likeIcon} /> : <FavoriteBorderIcon className={Styles.unlikeIcon} />} {likes}
           </button>
         </CardContent>
-        {userPost && (
+        {userPost ?
           <IconButton
             aria-label="more"
             id="long-button"
@@ -224,8 +184,18 @@ const PostCard = ({ data, DeletePost, userPost, user }) => {
             className={Styles.MenuBtn}
           >
             <MoreVertIcon />
+          </IconButton> : <IconButton
+            aria-label="more"
+            id="public-button"
+            aria-controls={open ? "public-menu" : undefined}
+            aria-expanded={open ? "true" : undefined}
+            aria-haspopup="true"
+            onClick={handleClick1}
+            className={Styles.MenuBtn}
+          >
+            <MoreVertIcon />
           </IconButton>
-        )}
+        }
         <Menu
           id="long-menu"
           anchorEl={anchorEl}

@@ -16,6 +16,7 @@ import Link from "next/link";
 import FollowModel from "./followModel";
 import FollowingModel from "./FollowingModel";
 import EditProfile from "./editProfile";
+
 export default function ProfilePage() {
   const [user, setuser] = useState({});
   const [isLoading, setisLoading] = useState(true);
@@ -143,12 +144,15 @@ export default function ProfilePage() {
                 component="label"
                 sx={{ border: "none" }}
               >
-                <Image
+                {/* <Image
                   src={data?.user?.Image? `${process.env.NEXT_PUBLIC_API}/public/dps/${data?.user?.Image}`: '/profilePic.png'}
-                  className={Styles.profilePicture}
+                   
                   layout="fill"
                   alt={"dp"}
-                />
+                /> */}
+                {data?.user?.Image? <Avatar src={`${process.env.NEXT_PUBLIC_API}/public/dps/${data?.user?.Image}`} className={Styles.profilePicture} />:
+                <Avatar className={Styles.profilePicture} >{data?.user?.name[0]}</Avatar>}
+
                 
                 {user_id == id ? <
               >

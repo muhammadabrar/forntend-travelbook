@@ -197,7 +197,7 @@ function Logout() {
     <Box sx={{ flexGrow: 1, backgroundColor: "green" }}>
       <AppBar
         position="static"
-        sx={{ backgroundColor: "#00000055", p: "5px 0px" }}
+        sx={{ backgroundColor: "#FC8621", p: "5px 0px" }}
       >
         <Toolbar>
           <img src="/travel-book-logo.jpeg" />

@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Navbar/>
       <HomePage />
-      <Main />
+      <Main landingPage/>
     </div>
   );
 }

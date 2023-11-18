@@ -21,8 +21,8 @@ const [search, setsearch] = useState('');
         <Grid className={Styles.gridContainer}>
           <Grid item lg={2} md={6} xs={12} sx={{ m: "10px auto" }}>
             <Typography variant="h6" component="p" className={Styles.heading}>
-              Travel all over{" "}
-              <span className={Styles.headingLast}>the world</span>
+             
+              <span className={Styles.headingLast}>Pakistan</span> best tourism site
             </Typography>
           </Grid>
           <Link href={`/search`}><a>

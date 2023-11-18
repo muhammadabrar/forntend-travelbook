@@ -27,7 +27,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
+  const {  expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
@@ -37,7 +37,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Main() {
+export default function Main({landingPage}) {
   const [expanded, setExpanded] = useState(false);
   const [expanded1, setExpanded1] = useState(false);
 
@@ -51,9 +51,8 @@ export default function Main() {
   const [data, setdata] = useState();
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API}/post`)
+      .get(`${process.env.NEXT_PUBLIC_API}/post${landingPage? '/landingPage': ""}`)
       .then(function (response) {
-        console.log(response);
         setdata(response.data);
         localStorage.setItem("posts", JSON.stringify(response.data));
         setLoading(false);
@@ -68,13 +67,25 @@ export default function Main() {
     <Container>
       <Item>
         <Typography className={Styles.heading} variant="h3" component="h3">
-          Trending Posts
+         {landingPage? "Our Tours":"Some tours experience"}
         </Typography>
       </Item>
+      <Item>
+      {Loading&& <div 
+         style={{
+          display: 'flex',
+          justifyContent: "center",
+          alignItems: "center",
+          width: '100%',
+          height: "400px"
+        }}
+        ><CircularProgress color="inherit" /></div>}
+      </Item>
       <div className={Styles.cardGrid}>
+        
         {data?.map((data, i) => (
           <Item key={i} className={Styles.cardItem}>
-            <PostCard data={data.post} likes={data.post.like} user={data.user} />
+            <PostCard data={landingPage? data: data.post} likes={landingPage? data?.like:data?.post?.like} user={data?.user}  landingPage/>
           </Item>
         ))}
       </div>
